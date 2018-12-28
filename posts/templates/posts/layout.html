@@ -1,0 +1,67 @@
+{% load static %}
+<!Doctype HTML>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X=UA-Compatible"
+        content="ie=edge">
+        <title>Stech Blog</title>
+        <link rel="stylesheet" href="{%static 'css/materialize.min.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+            <div class="container">
+            <nav>
+                <div class="nav-wrapper">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+
+                    <a href="/" class="brand-logo center" 
+                    style="color: cornsilk;text-shadow: 2px 2px darkmagenta;">Stech Blog</a>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'post-create'%}">New Post </a></li>
+                    <li><a href="{% url 'profile'%}">Profile</a></li>                    
+                    <li><a href="{% url 'logout'%}">Log Out</a></li>
+
+                    {% else %}                      
+                        <li><a href="/admin">Admin Login</a></li>
+                        <li><a href="{% url 'login'%}">User LogIn</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>                        
+                    </ul>
+                    {% endif %}
+                </div>
+             </nav>
+        <!-- <header class="container center-align">
+            <h1>Stech Blog</h1>
+        </header>  -->
+    
+        {%if messages%}
+            {% for message in messages %}
+
+            <div class="row">               
+                   <div class="card-panel green darken-1">                       
+                        <span  class="white-text text-darken-2"><b>{{message}}</b> </span>
+                   </div>
+            </div>
+                                   
+            {% endfor %}
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+
+        <!-- <br>
+        <a 
+        style="display:block; color:blue; background-color:lightcoral; font-size:large;
+        font-weight:bold; font-family:'Courier New', Courier, monospace; text-decoration:underline;" 
+        class="center-align "
+        href ="/admin">Admin Login</a> -->
+    </div>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>
+    </body>
+</html>

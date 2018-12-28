@@ -1,0 +1,16 @@
+body {
+    background-color: lightblue;
+    background-image: url("background.jpg") ;
+}
+h1{
+    color:blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+.mycontainer {
+    border-radius: 5px;
+    background-color: #f1e0eb;
+    opacity: 0.5;
+    padding: 20px;
+    
+}

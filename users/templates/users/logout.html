@@ -1,0 +1,18 @@
+{% extends "posts/layout.html" %}
+
+{% block content %}
+
+<h5 class="center-align red lighten-3"
+style="color: cornsilk; font-family:'Courier New', Courier, monospace; font-weight:bolder;">
+You Have Been Logged Out</h5>
+<div class="container,divider" style="background-color:aliceblue;">
+
+
+    <div class="row" >
+        <div class="col s12 center-align">
+            <h6><a href="{% url 'posts-index' %}">Home</a> </h6>
+          
+        </div>
+    </div>
+</div>
+{% endblock content %}

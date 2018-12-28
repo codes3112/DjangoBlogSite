@@ -1,0 +1,24 @@
+{% extends "posts/layout.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h3 class="center-align red lighten-3"
+style="color: cornsilk; font-family:'Courier New', Courier, monospace; font-weight:bolder;">Blog Post</h3>
+<div class="container,divider" style="background-color:aliceblue;">
+<form method="POST" >
+    {% csrf_token %}
+    <fieldset>
+        <legend><b>Create New Post </b></legend>
+        <!-- {{form.as_p}} -->
+        {{form|crispy}}
+    </fieldset>
+    <div class="row">
+         <br>
+        <button class="btn waves-effect waves-light " type="submit" name="action">Post
+            <i class="material-icons right">send</i>
+        </button>
+        <br><br>
+    </div>        
+</form>
+</div>
+{% endblock content %}

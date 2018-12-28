@@ -1,0 +1,29 @@
+{% extends 'posts/layout.html' %}
+{% block content %}
+
+<h3 class="center-align red lighten-3" style="color:cornsilk; font-family:'Courier New', Courier, monospace; font-weight:bolder;">{{post.title}}</h3>
+<div class="card">
+        <div class="card-content">
+                <img src={{post.picture.url}} class="responsive-img" height="200" width="200">
+            </div>
+    <div class="card-content">
+        {{post.body}}
+    </div>
+    <div class="card-action" style="font-style:oblique; color:blue;">
+       <span>Posted On :</span> {{post.created_at}}
+    </div>
+    {% if post.author == user %}
+    <a class="btn waves-effect waves-light blue accent-3 " name="action" href="{% url 'post-update' post.id %}">Update</a>&nbsp;&nbsp;
+    <a class="btn waves-effect waves-light red darken-3" name="action" href="{% url 'post-delete' post.id %}">Delete</a>
+    <br><br>
+
+           
+    {% endif %}
+</div>
+
+<a class="btn waves-effect waves-light" href="/posts">Go Back</a>
+<br>
+
+{% endblock %}
+
+

@@ -1,0 +1,26 @@
+{% extends "posts/layout.html" %}
+
+{% block content %}
+
+<h3 class="center-align red lighten-3"
+style="color: cornsilk; font-family:'Courier New', Courier, monospace; font-weight:bolder;">Blog Post</h3>
+<div class="container,divider" style="background-color:aliceblue;">
+<form method="POST" >
+    {% csrf_token %}
+    <fieldset>
+        <legend><b>Delete Post </b></legend>
+        <h5 style="color: rgb(204, 69, 69);"> Are you sure you want to delete the post:</h5>
+        <h4>"{{post.title}}"</h4>
+        <!-- {{form.as_p}} -->
+       
+    </fieldset>
+    <div class="row">
+         <br>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Yes,Delete
+            </button>
+        <button class="btn waves-effect waves-light" name="action">
+            <a href="{% url 'details' post.id %}">Cancel</a></button>
+    </div>        
+</form>
+</div>
+{% endblock content %}
